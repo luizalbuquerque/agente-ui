@@ -1,0 +1,18 @@
+/* upload.component.scss */
+
+.upload-card {
+  /* Estilos para o componente de envio de arquivos */
+}
+
+.upload-progress {
+  display: flex;
+  align-items: center;
+}
+
+.upload-progress-bar {
+  flex-grow: 1;
+}
+
+.upload-progress-label {
+  margin-left: 10px;
+}

@@ -1,0 +1,20 @@
+<!-- upload.component.html -->
+
+<mat-card class="upload-card">
+  <mat-card-content>
+    <h2>Envio de Arquivos XML</h2>
+    <input type="file" (change)="onFileChange($event)" multiple />
+    <div class="upload-progress">
+      <mat-progress-bar
+        class="upload-progress-bar"
+        *ngIf="loading"
+        mode="determinate"
+        [value]="progress"
+      ></mat-progress-bar>
+      <span class="upload-progress-label">{{ progress }}%</span>
+    </div>
+    <h5 *ngIf="message">{{ message }}</h5>
+    <button mat-raised-button color="primary" (click)="uploadFiles()">Enviar</button>
+    <button mat-raised-button color="warn" (click)="cancelUpload()">Cancelar</button>
+  </mat-card-content>
+</mat-card>

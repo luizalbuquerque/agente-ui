@@ -1,0 +1,42 @@
+/* app.component.scss */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.menu-card {
+  margin: 0 20px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.upload-card,
+.data-list-card {
+  width: 400px;
+  padding: 16px;
+  margin: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.upload-card {
+  background-color: #f5f5f5;
+}
+
+.data-list-card {
+  background-color: #ffffff;
+}
+
+
+/* app.component.scss */
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 72px); /* Leva em consideração a altura da barra superior */
+  background-color: #f5f5f5;
+}
