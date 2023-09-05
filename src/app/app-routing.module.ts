@@ -4,6 +4,7 @@ import { UploadComponent } from './upload/upload.component';
 import { ConsolidatedDataComponent } from './consolidated-data/consolidated-data.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/upload', pathMatch: 'full' }, // Redireciona para o upload por padrão
   { path: 'upload', component: UploadComponent },
   { path: 'consolidated', component: ConsolidatedDataComponent }
 ];

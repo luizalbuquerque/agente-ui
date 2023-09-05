@@ -1,1 +1,7 @@
-<p>consolidated-data works!</p>
+<div *ngFor="let region of consolidatedData | keyvalue">
+  <h3>{{ region.key }}</h3>
+  <p>Geracao Média: {{ region.value.geracaoMedia }}</p>
+  <p>Compra Média: {{ region.value.compraMedia }}</p>
+  <p>Preço Médio Médio: {{ region.value.precoMedioMedia }}</p>
+  <hr />
+</div>

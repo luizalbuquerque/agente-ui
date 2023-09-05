@@ -22,18 +22,17 @@ export class UploadComponent implements OnInit {
 
   async uploadFiles() {
     if (!this.selectedFiles || this.selectedFiles.length === 0) return;
-
+  
     this.loading = true;
     this.progress = 0;
     this.message = '';
-
+  
     try {
-      const progress = await this.uploadService.upload(this.selectedFiles);
-      this.progress = progress;
-
-      if (progress === 100) {
-        this.message = 'Upload realizado com sucesso';
+      const filesArray = Array.from(this.selectedFiles);
+      for (const file of filesArray) {
+        await this.uploadFile(file);
       }
+      this.message = 'Todos os arquivos foram enviados com sucesso';
     } catch (error) {
       console.error('Erro no upload:', error);
       this.message = 'Falha no upload';
@@ -41,7 +40,27 @@ export class UploadComponent implements OnInit {
       this.loading = false;
     }
   }
+  
 
+  async uploadFile(file: File) {
+    try {
+      const fileList = new DataTransfer(); // Cria um novo DataTransfer
+      fileList.items.add(file); // Adiciona o arquivo ao DataTransfer
+      const progress = await this.uploadService.upload(fileList.files);
+      this.progress = progress;
+    
+      if (progress === 100) {
+        this.message = `Upload do arquivo ${file.name} realizado com sucesso`;
+      }
+    } catch (error) {
+      console.error(`Erro no upload do arquivo ${file.name}:`, error);
+      this.message = `Falha no upload do arquivo ${file.name}`;
+      throw error;
+    }
+  }
+  
+  
+  
   cancelUpload() {
     this.loading = false;
     this.progress = 0;
